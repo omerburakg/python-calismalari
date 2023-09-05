@@ -1,0 +1,3 @@
+Insert Into categories (name,description) Values('Web Devolopment','Web Devolopment Description')
+
+Insert Into hangi db eklenecek, hangi sütunlara Values (sırasıyla değerler)

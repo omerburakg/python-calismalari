@@ -1,0 +1,16 @@
+UPDATE categories
+set description = 'New Category'
+
+# böyle yaparsak tüm veriler etkilenir.
+
+
+UPDATE categories
+set description = 'New Category'
+where id = 1 or  id = 3
+
+sadece id'si 1 ya da 3 olan kayıtların descriptonunu değiştirdik.
+
+UPDATE categories
+set description = 'New Category'
+where id in (1,3) 
+idsi 1 ve 3 değişir 2 olan değişmez

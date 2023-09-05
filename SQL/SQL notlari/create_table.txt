@@ -1,0 +1,28 @@
+CREATE TABLE users (
+	id serial Not Null Primary Key,
+	first_name varchar (100) Not Null,
+	last_name varchar (100) Not Null,
+	email varchar(255) Unique Not Null
+);
+
+CREATE TABLE IF NOT EXISTS categories(
+	id serial Not Null Primary key,
+	name varchar(100) Not Null,
+	description text
+);
+
+CREATE TABLE IF NOT EXISTS articles(
+	id serial Not Null Primary key,
+	user_id integer Not Null,
+	category_id integer,
+	title varchar(100) Not Null,
+	content text Not Null,
+	Foreign Key (user_id) references users(id) On Delete Cascade,
+	Foreign Key (category_id) references categories(id) On Delete Set Null
+);
+
+kolon ismi, türü, not null olacaksa yazılmalı, primary key ise yazılmalı
+
+
+Foreign keyler kolonlar bittikten sonra belirtilmeli
+Foreign key (hangi kolonun nereden referans alacagı) references 'referans alınan db(kolon)' On Delete cascade ya da set null sonra yazılır.

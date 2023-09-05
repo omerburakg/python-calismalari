@@ -1,0 +1,54 @@
+# isim için başlangıçta character varying kullandık ve 100 karakter ile sınırladık.
+
+# primary key = id gibi, kişiye veriye özel key belirlememize yarar. Bu sayede aynı veriler birbirinden ayrılır. null olamaz.
+serial
+
+# unique key = bir sütunu eşsiz değer yapmak için kullanılır. validation için kullanılır. Örneğin bir dbde aynı epostayı istemiyorsak unique key kullanabiliriz.
+
+# unique key ile primary key birbiriyle karıştırılır. İkisi de eşsiz değerlere sahiptir. Primary key'ler kesinlikle değiştirilmemelidir. Uniqeue keyler daha sonra değiştirilebilir alanlardır.
+
+# primary key db'de sadece bir tane olmalıdır. unique key ise daha fazla olabilir. unique key not null olarak işaretlenir.
+
+# Normalizasyon: Verilerin sağlıklı ve güvenli bir biçimde tutulması, verilerde kaçak veya bozuk olmaması için oluşturulan kurallar bütünü.
+
+# normalizasyon gereksiz verilerin saklanmasını engeller.
+
+# BİRİNCİ NORMAL FORM (1NF)
+- Birinci Normal Form Kuralları:
+	Her tabloda primary key bulunmalıdır.
+	Bir kolonda aynı türden birden fazla veri bulunmamalıdır. (atomik)
+	Her kolon sadece tek tip bilgi tutmalıdır.
+	Tekrarlanan kolonlar olmamalıdır.
+
+	1 müşterinin 1den fazla tel numarası olabilir.
+	1 telefon numarası yalnızca 1 müşteriye ait olabilir.
+
+	One-To-Many: Bire çok ilişkisi
+	Bu ilişki için foreign (referans) key kullanılır.
+---
+# functional dependency
+	if t1.x = t2.x
+	then t1.y = t2.y
+
+# eğer 1 ya da birden fazla kolon, tablodaki herhangi bir kaydı(record) eşsiz belirleyebiliyorsa anahtardır.
+# super key = eşsiz olan ve tekrarlamayan keyler
+# candidate(aday) key = primary key olmaya aday olan key. candidate keyler belirlenir ve primary key seçilir. *screenshot*
+
+# İKİNCİ NORMAL FORM
+-İkinci Normal Form Kuralları:
+	Birinci normal form kuralları sağlanmalıdır.
+	Partial dependery olmamalı.
+
+# Foreign Key (yabancı anahtar) ikincil anahtar olarak da ifade edilmektedir. Bir veri tablosuna girilebilecek değerleri başka bir veri tablosundaki alanlarla ilişkilendirmeye yarar.
+
+# ON DELETE
+	Restrict: İlişkili ise silmez ve hata fırlatır.   No action da benzeri
+	Cascade: İlişkili şeyleri de siler. Örneğin user'ın yazdığı makaleler de user ile birlikte silinir.
+	Set Null: On delete set null olarak belirtirsek user'ı siler ve ilişkili yerlerde null olarak getirir. Örneğin makaleyi yazan null olarak gözükür.
+	Set Default: örneğin user'ın yazdığı makaleleri admin id'sini atabiliriz. Id değiştirmek gibi düşünülebilir.
+
+# ON UPDATE
+	Restrict: user id primary key'ini değiştirmeye izin vermeyecek.
+	Diğer işlemler de on delete gibi çalışır.
+	Her veritabanı on update desteklemez.
+	On update desteklemiyorsa primary key değiştiremeyiz ve örneğin username primary key ise değiştirilemez. Bu yüzden veritabanını göz ardı edip değiştirilmeyecek bir şey 	primary key seçilmelidir. Örneğin ID gibi.

@@ -1,0 +1,20 @@
+Structured Query Language
+
+Select * From Students where = "Ramesh"
+# Örnek
+
+Bir veri tabanı yöneticisi, bir sütun veya tüm veri grubuna (satır) hangi değerlerin girilebileceğini sınırlayabilir. Ortak SQL kısıtlamaları aşağıdakileri içerir: 
+
+UNIQUE: Bir sütundaki iki giriş aynı olamaz.
+
+NOT NULL: Sütun boş değerlere sahip olamaz.
+
+PRIMARY KEY: Bir sütundaki her giriş boş değildir ve benzersizdir.
+
+FOREIGN KEY: Başka bir tablodaki birincil anahtarı ifade eder.
+
+CHECK: Bir sütuna girilebilecek değer aralığını sınırlar.
+
+DEFAULT: Belirli bir sütun için varsayılan bir değer sağlar.
+
+INDEX: Verilerin daha hızlı alınmasını sağlar.

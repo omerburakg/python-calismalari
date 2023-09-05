@@ -1,0 +1,8 @@
+Delete From categories where name = 'Web Devolopment'
+
+categoies tablosundan ismi 'web devolopment' olanı siler. on delete set null ayarlandıysa silinen yerde null kalır.
+
+
+Delete From users where id = 4 
+
+users tablosundan idsi 4 olanı siler. foreign key ayarladıysak ve on delete cascade seçtiysek makaleleri de bu şekilde silinmiş olur.
